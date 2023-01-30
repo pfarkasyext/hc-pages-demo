@@ -12,8 +12,8 @@ const links: Link[] = [
     url: "/",
   },
   {
-    label: "About",
-    url: "/turtlehead-tacos",
+    label: "Search",
+    url: "https://ethically-greasy-crawdad.sbx.pgsdemo.com/landing.html",
   },
 ];
 
@@ -32,9 +32,9 @@ const Header = () => {
         <nav className="py-6 flex items-center justify-between">
           <div className="flex gap-x-4 items-center">
             <img
-              src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
-              width="50"
-              height="50"
+              src="/src/assets/images/synergic.png"
+              width="150px"
+              height="auto"
             ></img>
             <div className="flex gap-x-4 text-sm font-semibold text-body">
               {linkDoms}
@@ -44,9 +44,10 @@ const Header = () => {
           <div className="flex gap-x-4">
             <div className=" h-12 pt-4 ">
               <Cta
-                buttonText="Order Online"
+                buttonText="Patient Portal"
                 url="#"
                 style="text-white bg-orange shadow-xl"
+                target="_self"
               ></Cta>
             </div>
           </div>

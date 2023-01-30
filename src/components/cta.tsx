@@ -5,10 +5,11 @@ type Cta = {
   buttonText: string;
   url: string;
   style?: string;
+  target: string;
 };
 
 const Cta = (props: Cta) => {
-  const { buttonText, url, style } = props;
+  const { buttonText, url, style, target } = props;
 
   return (
     <a
@@ -17,7 +18,7 @@ const Cta = (props: Cta) => {
         " py-4 px-6 text-base font-bold text-white rounded-lg",
         style
       )}
-      target="_blank"
+      target={target}
       rel="noopener noreferrer"
     >
       {buttonText}

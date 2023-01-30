@@ -32,7 +32,7 @@ const Banner = (props: Banner) => {
   return (
     <>
       <div
-        className={`relative z-10 w-full bg-cover bg-center h-96 bg-[url(/src/assets/images/tacos-1.avif)] `}
+        className={`relative z-10 w-full bg-cover bg-center h-96 bg-[url(/src/assets/images/stethoscope.jpeg)] `}
       >
         <div className="absolute left-0 right-0 flex flex-col items-center ">
           <div className="w-96 my-8 rounded-xl bg-amber-500 border-8 shadow-xl border-amber-600 px-4 py-2 text-center">
@@ -44,12 +44,12 @@ const Banner = (props: Banner) => {
             </div>
             <div className="flex pt-4 justify-between">
               <Cta
-                buttonText="Order Pickup"
+                buttonText="Call"
                 url="#"
                 style="text-orange bg-white shadow-xl"
               ></Cta>
               <Cta
-                buttonText="Order Delivery"
+                buttonText="Appointments"
                 url="#"
                 style="text-orange bg-white shadow-xl"
               ></Cta>
