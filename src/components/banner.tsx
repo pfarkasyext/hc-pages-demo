@@ -62,6 +62,8 @@ const Banner = (props: Banner) => {
     c_specialty,
   } = props;
 
+  const specialtyStr = c_specialty?.specialty ? c_specialty?.specialty + " in " : "";
+
   return (
     <>
       <div
@@ -76,7 +78,7 @@ const Banner = (props: Banner) => {
               <div className="align-middle">
                 <h1 className="text-white text-3xl font-semibold">{name}</h1>
                 <div className="text-lg pt-2 text-white font-semibold">
-                  {c_specialty.specialty} in {address.city}, {address.region}
+                  {specialtyStr}{address.city}, {address.region}
                 </div>
                 <div className="text-base pt-2 text-white">
                   {renderRating(c_starRating, c_numberOfReviews)}
