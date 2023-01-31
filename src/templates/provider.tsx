@@ -25,6 +25,7 @@ import Hours from "../components/hours";
 import List from "../components/list";
 import PageLayout from "../components/page-layout";
 import StaticMap from "../components/static-map";
+import Description from "../components/description";
 import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
 
@@ -48,6 +49,13 @@ export const config: TemplateConfig = {
       "slug",
       "geocodedCoordinate",
       "services",
+      "headshot",
+      "c_specialty",
+      "c_medicalGroupStatus",
+      "c_starRating",
+      "c_numberOfReviews",
+      "c_slotRow1",
+      "c_slotRow2"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -145,15 +153,29 @@ const Provider: Template<TemplateRenderProps> = ({
     geocodedCoordinate,
     services,
     description,
+    headshot,
+    acceptingNewPatients,
+    insuranceAccepted,
+    c_specialty,
+    c_medicalGroupStatus,
+    c_starRating,
+    c_numberOfReviews,
+    c_slotRow1,
+    c_slotRow2
   } = document;
 
   return (
     <>
       <PageLayout _site={_site}>
-        <Banner name={name} address={address} />
+        <Banner name={name} headshot={headshot} address={address} c_specialty={c_specialty} c_starRating={c_starRating} c_numberOfReviews={c_numberOfReviews} />
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
+            <div className="bg-gray-100 p-2">
+                <Description
+                  name={name}
+                ></Description>
+              </div>
               <div className="bg-gray-100 p-2">
                 <Details address={address} phone={mainPhone}></Details>
                 {services && <List list={services}></List>}
@@ -167,10 +189,6 @@ const Provider: Template<TemplateRenderProps> = ({
                   longitude={geocodedCoordinate.longitude}
                 ></StaticMap>
               )}
-              <div className="bg-gray-100 p-2">
-                <div className="text-xl font-semibold">{`About ${name}`}</div>
-                <p className="pt-4">{description}</p>
-              </div>
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ const Header = () => {
               <Cta
                 buttonText="Patient Portal"
                 url="#"
-                style="text-white bg-orange shadow-xl"
+                style="text-white bg-blue-600 shadow-xl"
                 target="_self"
               ></Cta>
             </div>
