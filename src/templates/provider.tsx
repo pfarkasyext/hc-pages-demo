@@ -45,12 +45,14 @@ export const config: TemplateConfig = {
       "address",
       "mainPhone",
       "description",
+      "c_specialtiesPages",
       "hours",
       "slug",
       "geocodedCoordinate",
       "services",
       "headshot",
-      "c_specialty",
+      "acceptingNewPatients",
+      "insuranceAccepted",
       "c_medicalGroupStatus",
       "c_starRating",
       "c_numberOfReviews",
@@ -150,13 +152,13 @@ const Provider: Template<TemplateRenderProps> = ({
     openTime,
     hours,
     mainPhone,
+    c_specialtiesPages,
     geocodedCoordinate,
     services,
     description,
     headshot,
     acceptingNewPatients,
     insuranceAccepted,
-    c_specialty,
     c_medicalGroupStatus,
     c_starRating,
     c_numberOfReviews,
@@ -170,8 +172,8 @@ const Provider: Template<TemplateRenderProps> = ({
         <Banner
           name={name}
           headshot={headshot}
+          c_specialtiesPages={c_specialtiesPages}
           address={address}
-          c_specialty={c_specialty}
           c_starRating={c_starRating}
           c_numberOfReviews={c_numberOfReviews}
           c_45StarsImage={_site.c_45StarsImage}
@@ -179,8 +181,13 @@ const Provider: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
-              <div className="bg-gray-100 p-2">
-                <Description name={name}></Description>
+              <div className="bg-gray-100 p-2 pb-8">
+                <Description
+                  name={name}
+                  c_specialtiesPages={c_specialtiesPages}
+                  acceptingNewPatients={acceptingNewPatients}
+                  insuranceAccepted={insuranceAccepted}
+                ></Description>
               </div>
               <div className="bg-gray-100 p-2">
                 <Details address={address} phone={mainPhone}></Details>

@@ -17,18 +17,13 @@ export type KgPic = {
   url: string;
 };
 
-export type Specialty = {
-  specialty: string;
-  subspecialty: string;
-};
-
 type Banner = {
   name?: string;
   headshot?: Headshot;
+  c_specialtiesPages?: string[];
   address?: Address;
   c_starRating?: string;
   c_numberOfReviews?: string;
-  c_specialty?: Specialty;
   c_siteLogo?: KgPic;
   c_45StarsImage?: KgPic;
 };
@@ -38,8 +33,6 @@ const renderRating = (
   c_numberOfReviews?: string,
   starImgUrl?: string
 ) => {
-  //const starImgUrl = "/src/assets/images/4-5-star.png";
-
   return (
     <>
       <img src={starImgUrl} width="140px" className="mx-auto"></img>
@@ -54,16 +47,21 @@ const Banner = (props: Banner) => {
   const {
     name,
     headshot,
+    c_specialtiesPages,
     address,
     c_starRating,
     c_numberOfReviews,
-    c_specialty,
     c_45StarsImage,
   } = props;
 
-  const specialtyStr = c_specialty?.specialty
-    ? c_specialty?.specialty + " in "
-    : "";
+  let tagline;
+  if (c_specialtiesPages === undefined) {
+    tagline = `${address?.city}, ${address?.region}`
+  } else {
+    tagline = c_specialtiesPages[0];
+    if (c_specialtiesPages[1]) tagline += ", " + c_specialtiesPages[1];
+    tagline += ` in ${address?.city}, ${address?.region}`;
+  }
 
   return (
     <>
@@ -78,9 +76,8 @@ const Banner = (props: Banner) => {
             <div className="w-2/3 text-center m-4">
               <div className="align-middle">
                 <h1 className="text-white text-3xl font-semibold">{name}</h1>
-                <div className="text-lg pt-2 text-white font-semibold">
-                  {specialtyStr}
-                  {address?.city}, {address?.region}
+                <div className="text-lg pt-2 text-white font-semibold max-w-xs">
+                  {tagline}
                 </div>
                 <div className="text-base pt-2 text-white">
                   {renderRating(
