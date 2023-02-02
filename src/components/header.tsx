@@ -17,7 +17,9 @@ const links: Link[] = [
   },
 ];
 
-const Header = () => {
+const Header = (props: any) => {
+  const { _site, c_siteLogoUrl } = props;
+  
   const linkDoms = links.map((link) => (
     <div key={link.label}>
       <a href={link.url} target="_blank" rel="noreferrer">
@@ -25,6 +27,7 @@ const Header = () => {
       </a>
     </div>
   ));
+  
 
   return (
     <div className="bg-gray-50">
@@ -32,7 +35,7 @@ const Header = () => {
         <nav className="py-6 flex items-center justify-between">
           <div className="flex gap-x-4 items-center">
             <img
-              src="/src/assets/images/synergic.png"
+              src={c_siteLogoUrl}
               width="150px"
               height="auto"
             ></img>

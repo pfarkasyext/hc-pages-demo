@@ -55,7 +55,7 @@ export const config: TemplateConfig = {
       "c_starRating",
       "c_numberOfReviews",
       "c_slotRow1",
-      "c_slotRow2"
+      "c_slotRow2",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -161,20 +161,26 @@ const Provider: Template<TemplateRenderProps> = ({
     c_starRating,
     c_numberOfReviews,
     c_slotRow1,
-    c_slotRow2
+    c_slotRow2,
   } = document;
 
   return (
     <>
-      <PageLayout _site={_site}>
-        <Banner name={name} headshot={headshot} address={address} c_specialty={c_specialty} c_starRating={c_starRating} c_numberOfReviews={c_numberOfReviews} />
+      <PageLayout _site={_site} c_siteLogo={_site.c_siteLogo}>
+        <Banner
+          name={name}
+          headshot={headshot}
+          address={address}
+          c_specialty={c_specialty}
+          c_starRating={c_starRating}
+          c_numberOfReviews={c_numberOfReviews}
+          c_45StarsImage={_site.c_45StarsImage}
+        />
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
-            <div className="bg-gray-100 p-2">
-                <Description
-                  name={name}
-                ></Description>
+              <div className="bg-gray-100 p-2">
+                <Description name={name}></Description>
               </div>
               <div className="bg-gray-100 p-2">
                 <Details address={address} phone={mainPhone}></Details>

@@ -13,6 +13,10 @@ export type Headshot = {
   url: string;
 };
 
+export type KgPic = {
+  url: string;
+};
+
 export type Specialty = {
   specialty: string;
   subspecialty: string;
@@ -25,22 +29,16 @@ type Banner = {
   c_starRating?: string;
   c_numberOfReviews?: string;
   c_specialty?: Specialty;
+  c_siteLogo?: KgPic;
+  c_45StarsImage?: KgPic;
 };
 
-const renderPrettyAddress = (address?: Address) => {
-  return (
-    <>
-      {address && (
-        <span>
-          {address.line1} in {address.city}, {address.region}
-        </span>
-      )}
-    </>
-  );
-};
-
-const renderRating = (c_starRating?: string, c_numberOfReviews?: string) => {
-  const starImgUrl = "/src/assets/images/4-5-star.png";
+const renderRating = (
+  c_starRating?: string,
+  c_numberOfReviews?: string,
+  starImgUrl?: string
+) => {
+  //const starImgUrl = "/src/assets/images/4-5-star.png";
 
   return (
     <>
@@ -60,9 +58,12 @@ const Banner = (props: Banner) => {
     c_starRating,
     c_numberOfReviews,
     c_specialty,
+    c_45StarsImage,
   } = props;
 
-  const specialtyStr = c_specialty?.specialty ? c_specialty?.specialty + " in " : "";
+  const specialtyStr = c_specialty?.specialty
+    ? c_specialty?.specialty + " in "
+    : "";
 
   return (
     <>
@@ -78,10 +79,15 @@ const Banner = (props: Banner) => {
               <div className="align-middle">
                 <h1 className="text-white text-3xl font-semibold">{name}</h1>
                 <div className="text-lg pt-2 text-white font-semibold">
-                  {specialtyStr}{address.city}, {address.region}
+                  {specialtyStr}
+                  {address?.city}, {address?.region}
                 </div>
                 <div className="text-base pt-2 text-white">
-                  {renderRating(c_starRating, c_numberOfReviews)}
+                  {renderRating(
+                    c_starRating,
+                    c_numberOfReviews,
+                    c_45StarsImage?.url
+                  )}
                 </div>
               </div>
             </div>

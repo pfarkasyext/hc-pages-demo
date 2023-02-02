@@ -1,0 +1,12 @@
+{
+  "$id": "site-entity",
+  "filter": {
+    "entityIds": ["pages-dev-site"]
+  },
+  "source": "knowledgeGraph",
+  "fields": ["c_siteLogo", "c_45StarsImage"],
+  "localization": {
+    "locales": ["en"],
+    "primary": false
+  }
+}
