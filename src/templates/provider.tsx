@@ -181,7 +181,7 @@ const Provider: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
-              <div className="bg-gray-100 p-2 pb-8">
+              <div className="bg-gray-100 p-6 pb-8">
                 <Description
                   name={name}
                   c_specialtiesPages={c_specialtiesPages}
@@ -189,11 +189,11 @@ const Provider: Template<TemplateRenderProps> = ({
                   insuranceAccepted={insuranceAccepted}
                 ></Description>
               </div>
-              <div className="bg-gray-100 p-2">
+              <div className="bg-gray-100 p-6">
                 <Details address={address} phone={mainPhone}></Details>
                 {services && <List list={services}></List>}
               </div>
-              <div className="bg-gray-100 p-2">
+              <div className="bg-gray-100 p-6">
                 {hours && <Hours title={"Office Hours"} hours={hours} />}
               </div>
               {geocodedCoordinate && (

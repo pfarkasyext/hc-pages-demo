@@ -1,10 +1,26 @@
 import * as React from "react";
 import Cta from "../components/cta";
+import { SearchBar } from "@yext/search-ui-react"
+import SearchHeader from "./search-header"
+import { provideHeadless, SearchHeadlessProvider, SandboxEndpoints } from "@yext/search-headless-react";;
 
 type Link = {
   label: string;
   url: string;
 };
+
+const apiKey = "7e586e5de90ad8889acbabca5bc57f32";
+const experienceKey = "find-a-doctor";
+const experienceVersion = "PRODUCTION";
+const locale = "en";
+
+const searcher = provideHeadless({
+  apiKey: apiKey,
+  experienceKey: experienceKey,
+  //verticalKey: "Your Vertical Key",
+  locale: "en",
+  endpoints: SandboxEndpoints,
+});
 
 const links: Link[] = [
   {
@@ -28,7 +44,6 @@ const Header = (props: any) => {
     </div>
   ));
   
-
   return (
     <div className="bg-gray-50">
       <div className="centered-container">
@@ -44,6 +59,9 @@ const Header = (props: any) => {
             </div>
           </div>
           <div className="space-x-5"></div>
+          <SearchHeadlessProvider searcher={searcher}>
+            <SearchHeader />
+          </SearchHeadlessProvider>
           <div className="flex gap-x-4">
             <div className=" h-12 pt-4 ">
               <Cta
