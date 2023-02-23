@@ -69,7 +69,7 @@ const Banner = (props: Banner) => {
         className={`relative z-10 w-full bg-cover bg-center h-80 bg-[url(/src/assets/images/banner-background-1.jpg)] `}
       >
         <div className=" left-0 right-0 flex flex-col items-center ">
-          <div className="my-8 rounded-xl bg-blue-600 border-8 shadow-xl border-blue-700 px-4 py-2 flex">
+          <div className="my-8 rounded-xl bg-brand-hover border-8 shadow-xl border-brand-primary px-4 py-2 flex">
             <div className="w-1/3 m-4">
               <img src={headshot?.url} width="200px" className="mx-auto"></img>
             </div>

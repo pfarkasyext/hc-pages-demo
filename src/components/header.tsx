@@ -25,7 +25,7 @@ const searcher = provideHeadless({
 const links: Link[] = [
   {
     label: "Home",
-    url: "/",
+    url: "https://ethically-greasy-crawdad.sbx.pgsdemo.com/landing.html",
   },
   {
     label: "Search",
@@ -49,11 +49,13 @@ const Header = (props: any) => {
       <div className="centered-container">
         <nav className="py-6 flex items-center justify-between">
           <div className="flex gap-x-4 items-center">
-            <img
-              src={c_siteLogoUrl}
-              width="150px"
-              height="auto"
-            ></img>
+            <a href="https://ethically-greasy-crawdad.sbx.pgsdemo.com/landing.html">
+              <img
+                src={c_siteLogoUrl}
+                width="150px"
+                height="auto"
+              ></img>
+            </a>
             <div className="flex gap-x-4 text-sm font-semibold text-body">
               {linkDoms}
             </div>
@@ -66,8 +68,8 @@ const Header = (props: any) => {
             <div className=" h-12 pt-4 ">
               <Cta
                 buttonText="Patient Portal"
-                url="#"
-                style="text-white bg-blue-600 shadow-xl"
+                url="https://ethically-greasy-crawdad.sbx.pgsdemo.com/landing.html"
+                style="text-white bg-brand-primary shadow-xl hover:bg-brand-hover"
                 target="_self"
               ></Cta>
             </div>
