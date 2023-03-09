@@ -3,6 +3,8 @@
 // The following import is the path to where the component source code lives
 const { ComponentsContentPath } = require("@yext/search-ui-react");
 
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./src/**/*.{ts,tsx}",
@@ -35,6 +37,9 @@ module.exports = {
           "50%": { transform: "rotate(45deg)", "stroke-dashoffset": 52 },
           "100%": { transform: "rotate(360deg)", "stroke-dashoffset": 204 },
         },
+      },
+      fontFamily: {
+        'sans': ["Source Sans Pro", ...defaultTheme.fontFamily.sans]
       },
     },
   },
