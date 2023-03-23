@@ -101,11 +101,11 @@ const SearchBarHead = () => {
 
   return (
     <>
-      <div className="w-2/5 relative z-50">
+      <div className="w-4/12 relative z-50">
         <SearchBar
           onSearch={onSearch}
           customCssClasses={{
-            searchBarContainer: "w-auto px-4 md:px-0  mt-4 mx-auto mb-auto ",
+            searchBarContainer: "w-auto px-4 md:px-0   mx-auto mb-auto ",
             inputElement: "demo ",
           }}
           hideRecentSearches={true}
