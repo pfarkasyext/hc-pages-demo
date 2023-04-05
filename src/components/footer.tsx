@@ -62,11 +62,11 @@ const Footer = () => {
           </a>
         </span>
       </div>
-      <div className="w-full px-8 mt-4 rounded-b-lg bg-blueGray-50">
-        <div className="container inline-flex flex-col flex-wrap items-center px-5 py-6 mx-auto sm:flex-row">
+      <div className="w-full justify-center flex px-8 mt-4 rounded-b-lg bg-blueGray-50">
+        <div className="inline-flex flex-col flex justify-center px-5 py-6 mx-auto sm:flex-row">
           <p className="mx-auto text-sm text-center text-black sm:text-left ">
             {" "}
-            © 2021{" "}
+            Synergic Health © 2023{" "}
           </p>
         </div>
       </div>
