@@ -45,7 +45,7 @@ const Header = (props: any) => {
   ));
   
   return (
-    <div className="bg-gray-50 min-h-[88px] px-6 py-6">
+    <div className="bg-brand-primary-dark min-h-[88px] px-6 py-6">
       <div className="centered-container">
         <nav className="py-6 flex items-center justify-between">
           <div className="flex gap-x-4 items-center">
@@ -56,7 +56,7 @@ const Header = (props: any) => {
                 height="auto"
               ></img>
             </a>
-            <div className="flex gap-x-4 text-base font-semibold text-body text-brand-primary">
+            <div className="flex gap-x-4 text-base font-semibold text-body text-white">
               {linkDoms}
             </div>
           </div>

@@ -32,6 +32,24 @@ const renderAddress = (address?: Address) => {
   }
 };
 
+const getDirectionsUrl = (addr?: Address) => {
+  const line2 = addr.line2 ? ` ${addr.line2},` : ``;
+  const region = addr.region ? ` ${addr.region}` : ``;
+  const rawQuery = `${addr.line1},${line2} ${addr.city},${region} ${addr.postalCode} ${addr.countryCode}`;
+  const query = encodeURIComponent(rawQuery);
+
+  const url = `https://www.google.com/maps/search/?api=1&query=${query}&output=classic`;
+
+  return url;
+}
+
+const phoneLink = (phone?: string) => {
+  if (!phone) {
+    return '';
+  }
+  return `tel:${phone}`;
+}
+
 const Details = (props: any) => {
   const { address, phone } = props;
 
@@ -43,9 +61,23 @@ const Details = (props: any) => {
           <div>
             {renderAddress(address)}
             <div className="pt-4">
-              <a href="#">{phone}</a>
+              {phone}
             </div>
           </div>
+        </div>
+        <div className="uppercase">
+          <Cta
+            buttonText="Get Directions"
+            url={getDirectionsUrl(address)}
+            style="text-white bg-brand-cta shadow-xl hover:bg-brand-cta-hover hover:underline mt-3 w-fit min-w-[200px] flex justify-center font-normal"
+            target="_self"
+          ></Cta>
+          <Cta
+            buttonText="Call"
+            url={phoneLink(phone)}
+            style="text-white bg-brand-cta shadow-xl hover:bg-brand-cta-hover hover:underline mt-3 w-fit min-w-[200px] flex justify-center font-normal"
+            target="_self"
+          ></Cta>
         </div>
       </div>
     </>

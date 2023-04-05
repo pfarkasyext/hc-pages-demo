@@ -22,8 +22,11 @@ module.exports = {
         neutral: "var(--neutral-color, #4b5563)",
         "neutral-light": "var(--neutral-color-light, #9ca3af)",
         "neutral-dark": "var(--neutral-color-dark, #1f2937)",
-        "brand-primary": "#61a3f8",
+        "brand-primary": "#579AF2",
         "brand-hover": "#3984f3",
+        "brand-primary-dark": "#25559c",
+        "brand-cta": "#D94A4A",
+        "brand-cta-hover": "#d86c04",
       },
       borderRadius: {
         cta: "var(--cta-border-radius, 1rem)",

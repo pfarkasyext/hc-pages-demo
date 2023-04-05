@@ -26,6 +26,8 @@ import List from "../components/list";
 import PageLayout from "../components/page-layout";
 import StaticMap from "../components/static-map";
 import Description from "../components/description";
+import ProviderBio from "../components/provider-bio";
+import AppointmentScheduler from "../components/appointment-scheduler";
 import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
 
@@ -44,7 +46,7 @@ export const config: TemplateConfig = {
       "name",
       "address",
       "mainPhone",
-      "description",
+      "c_providerBio",
       "c_specialtiesPages",
       "hours",
       "slug",
@@ -155,7 +157,7 @@ const Provider: Template<TemplateRenderProps> = ({
     c_specialtiesPages,
     geocodedCoordinate,
     services,
-    description,
+    c_providerBio,
     headshot,
     acceptingNewPatients,
     insuranceAccepted,
@@ -165,6 +167,14 @@ const Provider: Template<TemplateRenderProps> = ({
     c_slotRow1,
     c_slotRow2,
   } = document;
+
+  let schedulerDiv;
+  if (acceptingNewPatients) {
+    schedulerDiv = <div className="bg-gray-100 p-6"><AppointmentScheduler></AppointmentScheduler></div>
+  } else {
+    schedulerDiv = '';
+  }
+  
 
   return (
     <>
@@ -181,6 +191,11 @@ const Provider: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
+              <div className="bg-gray-100 p-6">
+                <ProviderBio
+                  description={c_providerBio}
+                ></ProviderBio>
+              </div>
               <div className="bg-gray-100 p-6 pb-8">
                 <Description
                   name={name}
@@ -193,6 +208,7 @@ const Provider: Template<TemplateRenderProps> = ({
                 <Details address={address} phone={mainPhone}></Details>
                 {services && <List list={services}></List>}
               </div>
+              {schedulerDiv}
               <div className="bg-gray-100 p-6">
                 {hours && <Hours title={"Office Hours"} hours={hours} />}
               </div>

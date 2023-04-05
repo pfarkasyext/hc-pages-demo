@@ -18,7 +18,12 @@ const Description = (props: any) => {
     insuranceAccepted
   } = props;
 
-  const renderAcceptingNewPatients = acceptingNewPatients ? "Accepting New Patients" : "Not Currently Accepting New Patients";
+  let acceptingPatientsLabel;
+  if (acceptingNewPatients) {
+    acceptingPatientsLabel = <div className="pt-4 font-semibold text-green-950">Accepting New Patients ✓</div>
+  } else {
+    acceptingPatientsLabel = <div className="pt-4 font-semibold">Not Currently Accepting New Patients</div>
+  }
 
   const insuranceList=insuranceAccepted?.map((item,index)=>{
     return <li key={index}>{item}</li>
@@ -34,8 +39,7 @@ const Description = (props: any) => {
         <br />
         <div className="pt-4 font-semibold">Specialties:</div>
         {specialtiesList}
-        <div className="pt-4 font-semibold">{renderAcceptingNewPatients}</div>
-        {acceptingNewPatients}
+        {acceptingPatientsLabel}
         <div className="pt-4 font-semibold">Insurances Accepted:</div>
         {insuranceList}
     </>
