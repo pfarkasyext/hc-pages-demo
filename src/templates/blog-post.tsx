@@ -26,9 +26,9 @@ import {
   import PageLayout from "../components/page-layout";
   import Favicon from "../public/yext-favicon.ico";
   import "../index.css";
-import BlogPostTitle from "../components/blog-post-title";
-import BlogPostSubtitle from "../components/blog-post-subtitle";
-import BlogPostContent from "../components/blog-post-content";
+  import BlogPostTitle from "../components/blog-post-title";
+  import BlogPostSubtitle from "../components/blog-post-subtitle";
+  import BlogPostContent from "../components/blog-post-content";
   
   /**
    * Required when Knowledge Graph data is used for a template.
@@ -157,20 +157,19 @@ import BlogPostContent from "../components/blog-post-content";
         <PageLayout _site={_site} c_siteLogo={_site.c_siteLogo}>
           <div className="centered-container">
             <div className="section">
-                <BlogPostTitle
+              <BlogPostTitle
                     name={name}
                     photoGallery={photoGallery}
-                ></BlogPostTitle>
-                <BlogPostSubtitle
                     c_author={c_author}
                     datePosted={datePosted}
                     c_summary={c_summary}
-                ></BlogPostSubtitle>
-                <BlogPostContent
-                    c_blogPostContentOriginal={c_blogPostContentOriginal}
-                    c_blogPostContentSimpleEnglish={c_blogPostContentSimpleEnglish}
-                    c_blogPostContentForKids={c_blogPostContentForKids}
-                ></BlogPostContent>
+              ></BlogPostTitle>
+              <BlogPostContent
+                  c_blogPostContentOriginal={c_blogPostContentOriginal}
+                  c_blogPostContentSimpleEnglish={c_blogPostContentSimpleEnglish}
+                  c_blogPostContentForKids={c_blogPostContentForKids}
+                  photoGallery={photoGallery}
+              ></BlogPostContent>
             </div>
           </div>
         </PageLayout>

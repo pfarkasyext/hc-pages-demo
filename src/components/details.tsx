@@ -69,13 +69,13 @@ const Details = (props: any) => {
           <Cta
             buttonText="Get Directions"
             url={getDirectionsUrl(address)}
-            style="text-white bg-brand-cta shadow-xl hover:bg-brand-cta-hover hover:underline mt-3 w-fit min-w-[200px] flex justify-center font-normal"
+            style="text-white bg-brand-cta shadow-xl hover:bg-brand-cta-hover hover:underline mt-3 w-fit min-w-[200px] flex justify-center font-normal py-2"
             target="_self"
           ></Cta>
           <Cta
             buttonText="Call"
             url={phoneLink(phone)}
-            style="text-white bg-brand-cta shadow-xl hover:bg-brand-cta-hover hover:underline mt-3 w-fit min-w-[200px] flex justify-center font-normal"
+            style="text-white bg-brand-cta shadow-xl hover:bg-brand-cta-hover hover:underline mt-3 w-fit min-w-[200px] flex justify-center font-normal py-2"
             target="_self"
           ></Cta>
         </div>

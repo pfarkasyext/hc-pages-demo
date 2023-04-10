@@ -1,8 +1,7 @@
 import * as React from "react";
 import Cta from "../components/cta";
-import { SearchBar } from "@yext/search-ui-react"
 import SearchHeader from "./search-header"
-import { provideHeadless, SearchHeadlessProvider, SandboxEndpoints } from "@yext/search-headless-react";;
+import { provideHeadless, SearchHeadlessProvider, SandboxEndpoints } from "@yext/search-headless-react";
 
 type Link = {
   label: string;
@@ -69,7 +68,7 @@ const Header = (props: any) => {
               <Cta
                 buttonText="Patient Portal"
                 url="https://ethically-greasy-crawdad.sbx.pgsdemo.com/landing.html"
-                style="text-white bg-brand-primary shadow-xl hover:bg-brand-hover"
+                style="text-white bg-brand-primary shadow-xl hover:bg-brand-hover py-4"
                 target="_self"
               ></Cta>
             </div>

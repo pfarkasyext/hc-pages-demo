@@ -3,19 +3,19 @@ import { twMerge } from "tailwind-merge";
 
 type Cta = {
   buttonText: string;
-  url: string;
+  url?: string;
   style?: string;
   target: string;
 };
 
 const Cta = (props: Cta) => {
-  const { buttonText, url, style, target } = props;
+  const { buttonText, url, style, target} = props;
 
   return (
     <a
       href={url}
       className={twMerge(
-        " py-4 px-6 text-base font-bold text-white rounded-lg",
+        "px-4 text-base font-bold text-white rounded-lg",
         style
       )}
       target={target}

@@ -1,4 +1,3 @@
-import searchConfig from "./searchConfig";
 import * as React from "react";
 import { SearchBar } from "@yext/search-ui-react";
 import { useEffect, useState } from "react";
@@ -39,7 +38,7 @@ const SearchBarHead = () => {
         deletingEffect();
         return false;
       }
-      timer = setTimeout(loopTyping, 65);
+      timer = setTimeout(loopTyping, 100);
     };
     loopTyping();
   }
@@ -60,7 +59,7 @@ const SearchBarHead = () => {
         typingEffect();
         return false;
       }
-      timer = setTimeout(loopDeleting, 35);
+      timer = setTimeout(loopDeleting, 65);
     };
     loopDeleting();
   }
