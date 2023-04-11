@@ -60,6 +60,7 @@ export const config: TemplateConfig = {
       "c_numberOfReviews",
       "c_slotRow1",
       "c_slotRow2",
+      "languages"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -166,6 +167,7 @@ const Provider: Template<TemplateRenderProps> = ({
     c_numberOfReviews,
     c_slotRow1,
     c_slotRow2,
+    languages,
   } = document;
 
   let schedulerDiv;
@@ -190,25 +192,25 @@ const Provider: Template<TemplateRenderProps> = ({
         />
         <div className="centered-container">
           <div className="section">
+            <div className="bg-gray-100 p-6 mb-10">
+              <ProviderBio
+                description={c_providerBio}
+              ></ProviderBio>
+            </div>
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
-              <div className="bg-gray-100 p-6">
-                <ProviderBio
-                  description={c_providerBio}
-                ></ProviderBio>
-              </div>
               <div className="bg-gray-100 p-6 pb-8">
                 <Description
                   name={name}
                   c_specialtiesPages={c_specialtiesPages}
                   acceptingNewPatients={acceptingNewPatients}
                   insuranceAccepted={insuranceAccepted}
+                  languages={languages}
                 ></Description>
               </div>
               <div className="bg-gray-100 p-6">
                 <Details address={address} phone={mainPhone}></Details>
                 {services && <List list={services}></List>}
               </div>
-              {schedulerDiv}
               <div className="bg-gray-100 p-6">
                 {hours && <Hours title={"Office Hours"} hours={hours} />}
               </div>
@@ -218,6 +220,7 @@ const Provider: Template<TemplateRenderProps> = ({
                   longitude={geocodedCoordinate.longitude}
                 ></StaticMap>
               )}
+              {schedulerDiv}
             </div>
           </div>
         </div>

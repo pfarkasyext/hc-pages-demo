@@ -8,14 +8,18 @@ type Description = {
   c_specialtiesPages?: string[];
   acceptingNewPatients?: boolean;
   insuranceAccepted?: string[];
+  languages?: string[];
 };
+
+
 
 const Description = (props: any) => {
   const {
     name,
     c_specialtiesPages,
     acceptingNewPatients,
-    insuranceAccepted
+    insuranceAccepted,
+    languages
   } = props;
 
   let acceptingPatientsLabel;
@@ -26,6 +30,10 @@ const Description = (props: any) => {
   }
 
   const insuranceList=insuranceAccepted?.map((item,index)=>{
+    return <li key={index}>{item}</li>
+  })
+
+  const languagesList=languages?.map((item,index)=>{
     return <li key={index}>{item}</li>
   })
 
@@ -42,6 +50,8 @@ const Description = (props: any) => {
         {acceptingPatientsLabel}
         <div className="pt-4 font-semibold">Insurances Accepted:</div>
         {insuranceList}
+        <div className="pt-4 font-semibold">Languages Spoken:</div>
+        {languagesList}
     </>
   );
 };
