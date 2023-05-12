@@ -2,6 +2,7 @@ import * as React from "react";
 import Site from "../types/Site";
 import Header from "./header";
 import Footer from "./footer";
+import { ChatBot } from "./ChatBot";
 
 export type KgPic = {
   url: string;
@@ -18,6 +19,7 @@ const PageLayout = ({ _site, c_siteLogo, children }: Props) => {
     <div className="min-h-screen">
       <Header _site={_site} c_siteLogoUrl={c_siteLogo?.url} />
       {children}
+      <ChatBot configId={"demo-synergic-health"}></ChatBot>
       <Footer _site={_site}></Footer>
     </div>
   );
