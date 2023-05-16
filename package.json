@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@yext/search-headless-react": "^2.1.0",
     "@yext/search-ui-react": "^1.1.0",
     "react": "^17.0.2",
