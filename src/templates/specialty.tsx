@@ -23,6 +23,7 @@ import PageLayout from "../components/page-layout";
 import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
 import SpecialtyBanner from "../components/specialty-banner";
+import SpecialtyProviders from "../components/specialty-providers";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -32,7 +33,7 @@ export const config: TemplateConfig = {
     $id: "my-stream-id-4",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
-    fields: ["id", "uid", "slug", "name", "c_area", "c_specialtyDescription", "c_pageBannerImage"],
+    fields: ["id", "uid", "slug", "name", "c_area", "c_specialtyDescription", "c_pageBannerImage", "c_treatedBy"],
     // Defines the scope of entities that qualify for this stream.
     filter: {
       entityTypes: ["ce_specialty"],
@@ -126,7 +127,8 @@ const Specialty: Template<TemplateRenderProps> = ({
     name,
     c_area,
     c_specialtyDescription,
-    c_pageBannerImage
+    c_pageBannerImage,
+    c_treatedBy
   } = document;
 
   return (
@@ -139,9 +141,10 @@ const Specialty: Template<TemplateRenderProps> = ({
             c_specialtyDescription={c_specialtyDescription}
             c_pageBannerImage={c_pageBannerImage}
           ></SpecialtyBanner>
-          <div>
-            Providers who specialize in {name}:
-          </div>
+          <SpecialtyProviders
+            name={name}
+            c_treatedBy={c_treatedBy}
+          ></SpecialtyProviders>
         </div>
       </PageLayout>
     </>
