@@ -135,7 +135,7 @@ const Campaign: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <PageLayout _site={_site}>
+      <PageLayout _site={_site} c_siteLogo={_site.c_siteLogo}>
         <div className="centered-container">
           <div className="section space-y-4">
             <div className="text-center text-3xl font-light">{name}</div>

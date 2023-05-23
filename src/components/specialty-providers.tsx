@@ -30,7 +30,7 @@ const SpecialtyProviders = (props: any) => {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {items.map((item: any, index: any) => (
             <a
-              href={item.slug ? item.slug : "#"}
+              href={item.slug ? "/" + item.slug : "#"}
               key={index}
               className={`relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-gray-50 hover:bg-gray-200 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400   transition-opacity duration-500 delay-${
                 index * 50

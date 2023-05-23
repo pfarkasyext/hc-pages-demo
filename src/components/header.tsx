@@ -36,11 +36,11 @@ const links: Link[] = [
   },
   {
     label: "Specialities",
-    url: "specialities",
+    url: "/specialities",
   },
   {
     label: "Campaign",
-    url: "campaign",
+    url: "/campaign/1108233005948279075",
   },
 ];
 
@@ -49,7 +49,7 @@ const Header = (props: any) => {
 
   const linkDoms = links.map((link) => (
     <div key={link.label}>
-      <a href={link.url} target="_blank" rel="noreferrer">
+      <a href={link.url} target="_self" rel="noreferrer">
         {link.label}
       </a>
     </div>
