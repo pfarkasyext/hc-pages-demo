@@ -47,6 +47,7 @@ export const config: TemplateConfig = {
       "c_participatingProviders.name",
       "c_participatingProviders.headshot",
       "c_participatingProviders.slug",
+      "c_participatingProviders.landingPageUrl",
       "c_participatingProviders.c_relatedSpecialty.name",
     ],
     // Defines the scope of entities that qualify for this stream.
@@ -155,7 +156,7 @@ const Campaign: Template<TemplateRenderProps> = ({
                       key={index}
                       className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow"
                     >
-                      <a href={person.slug}>
+                      <a href={person.landingPageUrl}>
                         <div className="flex flex-1 flex-col p-8">
                           <img
                             className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
