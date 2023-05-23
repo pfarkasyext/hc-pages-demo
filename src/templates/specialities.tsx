@@ -136,7 +136,7 @@ const Specialities: Template<ExternalImageRenderData> = ({
   return (
     <>
       <SearchHeadlessProvider searcher={searcher}>
-        <PageLayout _site={_site}>
+        <PageLayout _site={_site} c_siteLogo={_site.c_siteLogo}>
           <div className=" text-3xl font-bold  pt-10 flex items-center justify-center flex-col gap-x-14 gap-y-10 md:flex-row">
             <h1>Specialities</h1>
           </div>
