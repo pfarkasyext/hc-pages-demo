@@ -24,6 +24,7 @@ import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
 import SpecialtyBanner from "../components/specialty-banner";
 import SpecialtyProviders from "../components/specialty-providers";
+import { useState } from "react";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -46,9 +47,10 @@ export const config: TemplateConfig = {
       "c_treatedBy.slug",
       "c_treatedBy.c_relatedSpecialty.name",
       "c_treatedAt.name",
-      "c_treatedAt.headshot",
+      "c_treatedAt.logo",
       "c_treatedAt.slug",
       "c_treatedAt.c_relatedSpecialty.name",
+      "c_relatedReasonsForVisit.name",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -146,8 +148,9 @@ const Specialty: Template<TemplateRenderProps> = ({
     c_pageBannerImage,
     c_treatedBy,
     c_treatedAt,
+    c_relatedReasonsForVisit,
   } = document;
-  // console.log(JSON.stringify(c_treatedBy));
+  console.log(c_treatedAt);
 
   return (
     <>
@@ -159,10 +162,27 @@ const Specialty: Template<TemplateRenderProps> = ({
             c_specialtyDescription={c_specialtyDescription}
             c_pageBannerImage={c_pageBannerImage}
           ></SpecialtyBanner>
-          <SpecialtyProviders
-            name={name}
-            c_treatedBy={c_treatedBy}
-          ></SpecialtyProviders>
+          {c_treatedBy && (
+            <SpecialtyProviders
+              title={`Providers who specialize in ${name}:`}
+              data={c_treatedBy}
+              showAllText={`Show All Providers Who Specialize in ${name}`}
+            ></SpecialtyProviders>
+          )}
+          {c_treatedAt && (
+            <SpecialtyProviders
+              title={`Related facilities:`}
+              showAllText={`Show All Facilities`}
+              data={c_treatedAt}
+            ></SpecialtyProviders>
+          )}
+          {c_relatedReasonsForVisit && (
+            <SpecialtyProviders
+              title={`Reasons for Visit:`}
+              showAllText={`Show All Reasons`}
+              data={c_relatedReasonsForVisit}
+            ></SpecialtyProviders>
+          )}
         </div>
       </PageLayout>
     </>

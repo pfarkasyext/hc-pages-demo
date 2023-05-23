@@ -32,7 +32,7 @@ import Specialities_res from "../components/specialities_res";
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
   // Use this when you need to override the feature name.
-  name: "turtlehead-tacos",
+  name: "specialities",
 };
 
 /**
@@ -68,7 +68,7 @@ export const transformProps: TransformProps<ExternalImageData> = async (
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<ExternalImageData> = () => {
-  return `index.html`;
+  return `specialities`;
 };
 
 type ExternalImageRenderData = TemplateRenderProps & {
@@ -137,8 +137,8 @@ const Specialities: Template<ExternalImageRenderData> = ({
     <>
       <SearchHeadlessProvider searcher={searcher}>
         <PageLayout _site={_site}>
-          <div className="bg-red-900 text-5xl font-bold text-white p-10 flex items-center justify-center flex-col gap-x-14 gap-y-10 md:flex-row">
-            <h1>Welcome to Turtlehead Tacos</h1>
+          <div className=" text-3xl font-bold  pt-10 flex items-center justify-center flex-col gap-x-14 gap-y-10 md:flex-row">
+            <h1>Specialities</h1>
           </div>
           <Specialities_res />
         </PageLayout>
