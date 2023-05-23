@@ -33,7 +33,23 @@ export const config: TemplateConfig = {
     $id: "my-stream-id-4",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
-    fields: ["id", "uid", "slug", "name", "c_area", "c_specialtyDescription", "c_pageBannerImage", "c_treatedBy"],
+    fields: [
+      "id",
+      "uid",
+      "slug",
+      "name",
+      "c_area",
+      "c_specialtyDescription",
+      "c_pageBannerImage",
+      "c_treatedBy.name",
+      "c_treatedBy.headshot",
+      "c_treatedBy.slug",
+      "c_treatedBy.c_relatedSpecialty.name",
+      "c_treatedAt.name",
+      "c_treatedAt.headshot",
+      "c_treatedAt.slug",
+      "c_treatedAt.c_relatedSpecialty.name",
+    ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
       entityTypes: ["ce_specialty"],
@@ -128,8 +144,10 @@ const Specialty: Template<TemplateRenderProps> = ({
     c_area,
     c_specialtyDescription,
     c_pageBannerImage,
-    c_treatedBy
+    c_treatedBy,
+    c_treatedAt,
   } = document;
+  // console.log(JSON.stringify(c_treatedBy));
 
   return (
     <>
