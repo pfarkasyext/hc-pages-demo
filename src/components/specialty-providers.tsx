@@ -15,7 +15,7 @@ const SpecialtyProviders = (props: any) => {
       setItems(c_treatedBy);
     }
   };
-
+  /**/
   return (
     <div className="">
       <div className="mx-auto max-w-7xl py-16 sm:px-2 sm:py-24 lg:px-4">
