@@ -38,6 +38,10 @@ const links: Link[] = [
     label: "Specialities",
     url: "specialities",
   },
+  {
+    label: "Campaign",
+    url: "campaign",
+  },
 ];
 
 const Header = (props: any) => {
