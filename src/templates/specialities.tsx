@@ -18,6 +18,13 @@ import PageLayout from "../components/page-layout";
 import Card from "../components/card";
 import { ExternalImage } from "../types/ExternalImage";
 import Favicon from "../public/yext-favicon.ico";
+import {
+  SandboxEndpoints,
+  SearchHeadlessProvider,
+  provideHeadless,
+} from "@yext/search-headless-react";
+import SearchHeader from "../components/search-header";
+import Specialities_res from "../components/specialities_res";
 
 /**
  * Not required depending on your use case.
@@ -25,7 +32,7 @@ import Favicon from "../public/yext-favicon.ico";
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
   // Use this when you need to override the feature name.
-  name: "turtlehead-tacos",
+  name: "specialities",
 };
 
 /**
@@ -61,13 +68,12 @@ export const transformProps: TransformProps<ExternalImageData> = async (
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<ExternalImageData> = () => {
-  return `index.html`;
+  return `specialities`;
 };
 
 type ExternalImageRenderData = TemplateRenderProps & {
   externalImage: ExternalImage;
 };
-
 
 /**
  * This allows the user to define a function which will take in their template
@@ -75,13 +81,13 @@ type ExternalImageRenderData = TemplateRenderProps & {
  * will be used to generate the inner contents of the HTML document's <head> tag.
  * This can include the title, meta tags, script tags, etc.
  */
- export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
 }): HeadConfig => {
   return {
-    title: "Static Page Example",
+    title: "Specialities Page Example",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [
@@ -89,75 +95,56 @@ type ExternalImageRenderData = TemplateRenderProps & {
         type: "meta",
         attributes: {
           name: "description",
-          content: "Static page example meta description.",
+          content: "Specialities page example meta description.",
         },
       },
       {
         type: "link",
         attributes: {
-          rel: 'icon',
-          type: 'image/x-icon',
-          href: Favicon
+          rel: "icon",
+          type: "image/x-icon",
+          href: Favicon,
         },
-      }
+      },
     ],
   };
 };
-
 
 /**
  * This is the main template. It can have any name as long as it's the default export.
  * The props passed in here are the direct result from `getStaticProps`.
  */
-const Static: Template<ExternalImageRenderData> = ({
+const Specialities: Template<ExternalImageRenderData> = ({
   relativePrefixToRoot,
   path,
   document,
   externalImage,
 }) => {
   const { _site } = document;
+  const apiKey = "7e586e5de90ad8889acbabca5bc57f32";
+  const experienceKey = "find-a-doctor";
+  const experienceVersion = "PRODUCTION";
+  const locale = "en";
 
+  const searcher = provideHeadless({
+    apiKey: apiKey,
+    experienceKey: experienceKey,
+    verticalKey: "specialties",
+    locale: "en",
+    endpoints: SandboxEndpoints,
+  });
   return (
     <>
-      <PageLayout _site={_site}>
-        <div className="centered-container">
-          <div className="bg-red-900 text-5xl font-bold text-white p-10 flex items-center justify-center flex-col gap-x-14 gap-y-10 md:flex-row">
-            <h1>Welcome to Turtlehead Tacos</h1>
+      <SearchHeadlessProvider searcher={searcher}>
+        <PageLayout _site={_site}>
+          <div className=" text-3xl font-bold  pt-10 flex items-center justify-center flex-col gap-x-14 gap-y-10 md:flex-row">
+            <h1>Specialities</h1>
           </div>
-          <div className="space-y-5">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-              velit, sed quia non numquam eius modi tempora incidunt ut labore
-              et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-              veniam, quis nostrum exercitationem ullam corporis suscipit
-              laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-              vel eum iure reprehenderit qui in ea voluptate velit esse quam
-              nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-              voluptas nulla pariatur?
-            </p>
-            <div>
-              <Card {...externalImage} />
-            </div>
-          </div>
-        </div>
-      </PageLayout>
+          <Specialities_res />
+        </PageLayout>
+      </SearchHeadlessProvider>
     </>
   );
 };
 
-export default Static;
+export default Specialities;
