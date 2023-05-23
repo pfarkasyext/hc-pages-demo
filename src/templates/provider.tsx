@@ -30,6 +30,7 @@ import ProviderBio from "../components/provider-bio";
 import AppointmentScheduler from "../components/appointment-scheduler";
 import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
+import Popup from "../components/popup";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -60,7 +61,12 @@ export const config: TemplateConfig = {
       "c_numberOfReviews",
       "c_slotRow1",
       "c_slotRow2",
-      "languages"
+      "languages",
+      "c_popupTitle",
+      "c_popupBody",
+      "c_popupEnabled",
+      "c_popupPrimaryCTA",
+      "c_popupSecondaryCTA"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -168,19 +174,42 @@ const Provider: Template<TemplateRenderProps> = ({
     c_slotRow1,
     c_slotRow2,
     languages,
+    c_popupTitle,
+    c_popupBody,
+    c_popupEnabled,
+    c_popupPrimaryCTA,
+    c_popupSecondaryCTA
   } = document;
 
   let schedulerDiv;
   if (acceptingNewPatients) {
-    schedulerDiv = <div className="bg-gray-100 p-6"><AppointmentScheduler></AppointmentScheduler></div>
+    schedulerDiv = (
+      <div className="bg-gray-100 p-6">
+        <AppointmentScheduler></AppointmentScheduler>
+      </div>
+    );
   } else {
-    schedulerDiv = '';
+    schedulerDiv = "";
   }
-  
+
+  let popup;
+  if (c_popupEnabled) {
+    popup = (
+      <Popup
+        c_popupTitle={c_popupTitle}
+        c_popupBody={c_popupBody}
+        c_popupPrimaryCTA={c_popupPrimaryCTA}
+        c_popupSecondaryCTA={c_popupSecondaryCTA}
+      ></Popup>
+    );
+  } else {
+    schedulerDiv = "";
+  }
 
   return (
     <>
       <PageLayout _site={_site} c_siteLogo={_site.c_siteLogo}>
+        {popup}
         <Banner
           name={name}
           headshot={headshot}
@@ -193,9 +222,7 @@ const Provider: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="section">
             <div className="bg-gray-100 p-6 mb-10">
-              <ProviderBio
-                description={c_providerBio}
-              ></ProviderBio>
+              <ProviderBio description={c_providerBio}></ProviderBio>
             </div>
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
               <div className="bg-gray-100 p-6 pb-8">
@@ -222,7 +249,15 @@ const Provider: Template<TemplateRenderProps> = ({
               )}
               {schedulerDiv}
               <div className="bg-gray-100 h-[27rem]">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xZabpqkEARk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/xZabpqkEARk"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </div>
             </div>
           </div>
