@@ -27,12 +27,8 @@ const searcher = provideHeadless({
 
 const links: Link[] = [
   {
-    label: "Synergic Health",
+    label: "Synergic Home",
     url: "https://ethically-greasy-crawdad.sbx.pgsdemo.com/landing.html",
-  },
-  {
-    label: "Advenol",
-    url: "https://jovially-pure-gibbon.sbx.pgsdemo.com/",
   },
   {
     label: "Specialities",
@@ -41,6 +37,10 @@ const links: Link[] = [
   {
     label: "Campaign",
     url: "/campaign/1108233005948279075",
+  },
+  {
+    label: "Advenol",
+    url: "https://jovially-pure-gibbon.sbx.pgsdemo.com/",
   },
 ];
 
