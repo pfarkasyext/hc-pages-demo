@@ -66,7 +66,8 @@ export const config: TemplateConfig = {
       "c_popupBody",
       "c_popupEnabled",
       "c_popupPrimaryCTA",
-      "c_popupSecondaryCTA"
+      "c_popupSecondaryCTA",
+      "c_featuredVideo",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -178,7 +179,8 @@ const Provider: Template<TemplateRenderProps> = ({
     c_popupBody,
     c_popupEnabled,
     c_popupPrimaryCTA,
-    c_popupSecondaryCTA
+    c_popupSecondaryCTA,
+    c_featuredVideo,
   } = document;
 
   let schedulerDiv;
@@ -202,8 +204,26 @@ const Provider: Template<TemplateRenderProps> = ({
         c_popupSecondaryCTA={c_popupSecondaryCTA}
       ></Popup>
     );
-  } else {
-    schedulerDiv = "";
+  }
+
+  let videoDiv;
+  if (c_featuredVideo) {
+    const videoURL = c_featuredVideo?.url;
+    const videoID = videoURL.substring(videoURL.indexOf('=') + 1, videoURL.length + 1);
+    videoDiv = (
+      <div className="bg-gray-100 h-[27rem]">
+        {/* {videoID} */}
+        <iframe
+          width="100%"
+          height="100%"
+          src= {"https://www.youtube.com/embed/" + videoID}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    );
   }
 
   return (
@@ -248,17 +268,7 @@ const Provider: Template<TemplateRenderProps> = ({
                 ></StaticMap>
               )}
               {schedulerDiv}
-              <div className="bg-gray-100 h-[27rem]">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/xZabpqkEARk"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-              </div>
+              {videoDiv}
             </div>
           </div>
         </div>
