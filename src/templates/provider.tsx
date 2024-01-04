@@ -226,7 +226,11 @@ const Provider: Template<TemplateRenderProps> = ({
     );
   }
 
+  
+
   return (
+
+    
     <>
       <PageLayout _site={_site} c_siteLogo={_site.c_siteLogo}>
         {popup}
@@ -242,7 +246,7 @@ const Provider: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="section">
             <div className="bg-gray-100 p-6 mb-10">
-              <ProviderBio description={c_providerBio}></ProviderBio>
+              {c_providerBio && <ProviderBio description={c_providerBio}></ProviderBio>}
             </div>
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
               <div className="bg-gray-100 p-6 pb-8">
